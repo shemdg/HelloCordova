@@ -1,0 +1,427 @@
+/**
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+*/
+
+/* Theme: Lime / Sport — acid lime + near-black duotone, angular/skewed
+   shapes, condensed display type. Adapted from unslop.site's
+   Landing / Saturated Color reference. */
+
+:root {
+    --lime: #d4f000;
+    --ink: #0a0f00;
+
+    --font-display: 'Archivo Black', 'Arial Black', 'Helvetica Neue', sans-serif;
+    --font-body: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+html {
+    overscroll-behavior: none;
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    user-select: none;
+    text-size-adjust: none;
+    background: var(--lime);
+    color: var(--ink);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
+             env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+}
+
+/* Oversized faded watermark word, sport-hero signature move */
+.ghost {
+    position: absolute;
+    right: -0.06em;
+    top: -0.08em;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 42vw, 15rem);
+    line-height: 0.82;
+    letter-spacing: -0.06em;
+    color: var(--ink);
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* ---- Nav ---- */
+.nav {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    background: var(--ink);
+    transform: skew(-15deg);
+}
+
+.hero-icon {
+    height: 1.8rem;
+    width: auto;
+    display: block;
+    border: 2px solid var(--ink);
+}
+
+/* ---- Hero ---- */
+.hero {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem 1.25rem 1.5rem;
+}
+
+.hero-main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Not part of the visual design — kept in the DOM (hidden) so
+   js/index.js's deviceready handler always has #deviceready to find */
+.status {
+    display: none;
+}
+
+.h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 15vw, 4.75rem);
+    line-height: 0.86;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.arrow {
+    display: inline-block;
+    transform: skew(-15deg);
+    background: var(--ink);
+    color: var(--lime);
+    padding: 0 0.45rem;
+    margin-right: 0.35rem;
+}
+
+.outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink);
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+    .outline {
+        color: var(--ink);
+    }
+}
+
+.welcome {
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-height: 1.4em;
+    margin: 1rem 0 0;
+}
+
+.ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0;
+}
+
+.btn-solid,
+.btn-outline,
+.btn-ghost {
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.95rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.btn-solid {
+    background: var(--ink);
+    color: var(--lime);
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    padding: calc(0.95rem - 2px) calc(1.5rem - 2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    padding: 0.95rem 0.25rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.btn-solid:focus-visible,
+.btn-outline:focus-visible,
+.btn-ghost:focus-visible,
+.brand:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+}
+
+.btn-solid:active,
+.btn-outline:active,
+.btn-ghost:active {
+    opacity: 0.7;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1.75rem 0 0;
+}
+
+.stat-card {
+    background: var(--ink);
+    color: var(--lime);
+    padding: 1rem 1.1rem;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.stat-card-photo {
+    background-image: linear-gradient(rgba(10, 15, 0, 0.6), rgba(10, 15, 0, 0.6)), url('../img/button-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.stat-label {
+    margin: 0;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.stat-value {
+    margin: 0.4rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-delta {
+    margin: 0.35rem 0 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.85;
+}
+
+@media screen and (min-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---- Ticker ---- */
+.ticker {
+    position: relative;
+    z-index: 4;
+    overflow: hidden;
+    background: var(--ink);
+    color: var(--lime);
+    padding: 0.7rem 0 calc(0.7rem + env(safe-area-inset-bottom, 0));
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: inline-flex;
+    animation: ticker 18s linear infinite;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+@keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes fade {
+    from { opacity: 1; }
+    50% { opacity: 0.45; }
+    to { opacity: 1; }
+}
+
+.blink {
+    animation: fade 3000ms infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+        animation: none;
+    }
+
+    .blink {
+        animation: none;
+    }
+}
+
+/* Landscape / tablet: two-column hero, mirrors the reference's
+   content-left / stats-right split */
+@media screen and (min-width: 640px) {
+    .nav {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        align-items: end;
+        gap: 2rem;
+        padding: 0.5rem 2.5rem 2rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .h1 {
+        font-size: clamp(3.5rem, 9vw, 6.5rem);
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .h1 {
+        font-size: clamp(4rem, 7vw, 7.5rem);
+    }
+}
+
+/* ---- Alert modal — a themed stand-in for window.alert(), since a real
+   native alert can't be restyled from page CSS ---- */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 15, 0, 0.7);
+}
+
+.modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 26rem;
+    background: var(--ink);
+    color: var(--lime);
+    border: 2px solid var(--lime);
+    padding: 1.75rem 1.5rem 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+}
+
+.modal-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+}
+
+.modal-body {
+    margin: 0.9rem 0 0;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    white-space: pre-line;
+}
+
+.modal-close {
+    margin: 1.5rem 0 0;
+    background: var(--lime);
+    color: var(--ink);
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.modal-close:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 3px;
+}
+
+.modal-close:active {
+    opacity: 0.8;
+}

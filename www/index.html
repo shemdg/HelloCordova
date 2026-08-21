@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * fonts.googleapis.com/fonts.gstatic.com are allow-listed to load the Archivo Black + Inter Tight
+              typefaces used by the Lime/Sport theme
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light">
+        <meta name="theme-color" content="#d4f000">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Drake &mdash; Graham</title>
+    </head>
+    <body>
+        <div class="app">
+            <p class="ghost" aria-hidden="true">DRAKE</p>
+
+            <header class="nav">
+                <a class="brand" href="#top">
+                    <span class="brand-mark" aria-hidden="true"></span>
+                    Activity 1
+                </a>
+                <img class="hero-icon" src="img/hero-icon.jpg" alt="Drake">
+            </header>
+
+            <main class="hero" id="top">
+                <div class="hero-main">
+                    <div id="deviceready" class="status blink">
+                        <p class="event listening">&#9679; Connecting to device&hellip;</p>
+                        <p class="event received">&#9679; Device ready</p>
+                    </div>
+
+                    <h1 class="h1">
+                        <span class="arrow" aria-hidden="true">&rarr;</span>Drake<br>
+                        <span class="outline">Graham</span>
+                    </h1>
+
+                    <p class="welcome" id="welcomeMsg" aria-live="polite"></p>
+
+                    <div class="ctas">
+                        <button type="button" class="btn-solid" id="aboutBtn">About Me</button>
+                        <button type="button" class="btn-outline" id="courseBtn">My Course</button>
+                        <button type="button" class="btn-ghost" id="exitBtn">Exit</button>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <p class="stat-label">Local time &middot; today</p>
+                        <p class="stat-value" id="clockTime">--:--:--</p>
+                        <p class="stat-delta" id="clockDate">&#9679; &mdash;</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Name</p>
+                        <p class="stat-value">Drake Graham</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Course</p>
+                        <p class="stat-value">Computer Science</p>
+                    </div>
+                    <div class="stat-card stat-card-photo">
+                        <p class="stat-label">Year &amp; Section</p>
+                        <p class="stat-value">2026 O&rsquo;Block</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Subject</p>
+                        <p class="stat-value">Application Development</p>
+                    </div>
+                </div>
+            </main>
+
+            <div class="modal" id="modal">
+                <div class="modal-backdrop" id="modalBackdrop"></div>
+                <div class="modal-panel" role="alertdialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalBody">
+                    <p class="modal-title" id="modalTitle"></p>
+                    <p class="modal-body" id="modalBody"></p>
+                    <button type="button" class="btn-solid modal-close" id="modalClose">OK</button>
+                </div>
+            </div>
+
+            <footer class="ticker" aria-hidden="true">
+                <div class="ticker-track">
+                    <span>&#9670; WELCOME&nbsp;&nbsp;&#9670; WELCOME&nbsp;&nbsp; &#9670; WELCOME&nbsp;&nbsp;&#9670;</span>
+                    <span>&#9670; WELCOME&nbsp;&nbsp;&#9670; WELCOME&nbsp;&nbsp; &#9670; WELCOME&nbsp;&nbsp;&#9670;</span>
+                </div>
+            </footer>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
