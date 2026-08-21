@@ -1,0 +1,5 @@
+This project took me from a stock "Hello World" Cordova template to a fully customized mobile app, and it taught me more about the actual mechanics of hybrid app development than I expected. I learned that Cordova apps are really just a www/ folder of HTML, CSS, and JS that gets copied and bundled into a native shell — cordova prepare/build compiles it, but only cordova run actually installs it onto a device or emulator, a distinction that tripped me up more than once when my changes didn't seem to appear.
+
+Styling the app taught me to work within real constraints: adapting a desktop design reference into a responsive, accessible, mobile-first layout, and working around Content-Security-Policy restrictions when loading fonts and images. Adding JavaScript — a live clock pinned to a specific timezone, a custom themed alert modal instead of the browser's native one, wiring up buttons — pushed me to think about what's actually possible with plain DOM APIs versus what needs a library.
+
+By the end, I had a working, responsive Android app with a distinct visual identity, version-controlled and pushed to my own GitHub account under the right name.
